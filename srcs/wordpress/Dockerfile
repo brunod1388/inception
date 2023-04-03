@@ -19,6 +19,7 @@ RUN apk update && \
 			tar \
 			mariadb-client
 
+#get wordpress cli and move it to /usr/bin
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 RUN	chmod +x wp-cli.phar && mv wp-cli.phar /usr/bin/wp
 
@@ -36,11 +37,3 @@ EXPOSE 9000
 
 WORKDIR /var/www/wordpress
 ENTRYPOINT ["sh", "/run/wordpress_setup.sh"]
-
-
-# #We expose the 9000 port
-# EXPOSE 9000
-
-# #Launch PHP FPM in foreground and ignore deamonize from conf file (-F)
-# # CMD ["/usr/sbin/php-fpm7.3", "-F"]
-# CMD ["php-fpm7", "-F"]

@@ -13,11 +13,4 @@ RUN openssl req -newkey rsa:4096 -x509 -sha256 -days 365 -nodes \
 
 EXPOSE	443
 
-# TEST
-RUN		mkdir /var/www/mysite
-COPY	tools/mysite.html /var/www/mysite/mysite.html
-
-EXPOSE	80
-EXPOSE	81
-
 CMD	["nginx", "-g", "daemon off;"]

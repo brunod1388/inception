@@ -35,7 +35,6 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
 	
 	chown -R mysql:mysql /var/lib/mysql
 
-	# init database
 	mysql_install_db --basedir=/usr --datadir=/var/lib/mysql --user=mysql --rpm > /dev/null
 
 	tfile=`mktemp`
@@ -43,7 +42,6 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
 		return 1
 	fi
 
-	# https://stackoverflow.com/questions/10299148/mysql-error-1045-28000-access-denied-for-user-billlocalhost-using-passw
 	cat << EOF > $tfile
 USE mysql;
 FLUSH PRIVILEGES;
@@ -57,8 +55,8 @@ CREATE USER '$WP_DATABASE_USR'@'%' IDENTIFIED by '$WP_DATABASE_PWD';
 GRANT ALL PRIVILEGES ON $WP_DATABASE_NAME.* TO '$WP_DATABASE_USR'@'%';
 FLUSH PRIVILEGES;
 EOF
-	# run init.sql
 	/usr/bin/mysqld --user=mysql --bootstrap < $tfile
+
 	rm -f $tfile
 fi
 

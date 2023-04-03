@@ -1,20 +1,5 @@
 version: "3"
 
-# volumes:
-#   wordpress-volume:
-#     driver: local
-#     driver_opts:
-#       device: ${WP_VOLUME_PATH}
-#       type: volume
-#       o: bind
-
-#   mariadb-volume:
-#     driver: local
-#     driver_opts:
-#       device: ${DB_VOLUME_PATH}
-#       type: volume
-#       o: bind
-
 services:
   nginx:
     container_name: nginx_container

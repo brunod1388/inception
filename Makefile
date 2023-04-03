@@ -13,7 +13,6 @@ fclean:	clean
 
 prune: fclean
 	docker system prune --volumes --force --all
-	rm -rf volumes/mariadb_volume/*
 
 re: prune all
 
