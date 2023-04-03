@@ -27,9 +27,8 @@ else
     wp user create $WP_USR $WP_EMAIL --role=author --user_pass=$WP_PWD --allow-root
 	wp comment delete 1
 	wp post delete 1
-	wp post create --post_title="Kikou website" --post_content="This is my first post." --post_status='publish'
+	wp post create --post_title="Kikou first" --post_content="This is my first post." --post_status='publish'
 	wp theme install twentytwentyone --activate --allow-root
-	# wp theme activate twentytwentyone
 
 fi
 

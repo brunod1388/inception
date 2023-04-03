@@ -30,7 +30,7 @@ RUN mkdir /run/php
 
 RUN adduser -S nginx && addgroup -S nginx
 
-COPY wordpress_setup.sh /run
+COPY tools/wordpress_setup.sh /run
 RUN chmod +x /run/wordpress_setup.sh
 
 EXPOSE 9000
